@@ -1,0 +1,17 @@
+import docx
+import re
+
+doc = docx.Document('/Users/abhishekrotti/Downloads/AbhishekRottiCV.docx')
+all_paras = doc.paragraphs
+
+phone = re.compile('[+]*91[-]*[0-9]{10}')
+email = re.compile('[a-z A-Z . 0-9]+[@][a-z A-Z]+[.][a-z A-Z]+')
+big_str = ''
+
+for para in all_paras:
+    big_str = big_str + para.text + '\n'
+    
+phn = phone.findall(big_str)
+print(phn[0])
+mail = email.findall(big_str)
+print(mail[0])
