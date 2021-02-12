@@ -1,0 +1,10 @@
+import urllib.request as urllib2
+from bs4 import BeautifulSoup
+
+response = urllib2.urlopen('https://www.flipkart.com/samsung-galaxy-s21-ultra-phantom-black-256-gb/p/itmbec2f700e2ff3?pid=MOBFZ3TMSMXZATX3&lid=LSTMOBFZ3TMSMXZATX354XEIV&otracker=clp_bannerads_1_4.bannerAdCard.BANNERADS_Samsung%2BS21_mobile-phones-store_B5DEJN3IR67C')
+html_doc = response.read()
+
+soup = BeautifulSoup(html_doc, 'html.parser')
+strhtm = soup.prettify()
+
+print(soup.title.string)
