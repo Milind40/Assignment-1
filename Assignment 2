@@ -1,0 +1,13 @@
+import pandas as pd
+tweets = pd.read_excel('tweets.xlsx')
+tweets_df = pd.DataFrame(tweets)
+tweets_df.head()
+import re
+rt_clean = re.compile('rt @[a-z]+: ')
+def clean_tweets(row):
+    row = str(row)
+    mo = rt_clean.search(row)
+    print(mo.groups)
+    print(row.replace(temp, ''))
+    
+clean_tweets(tweets_df)
